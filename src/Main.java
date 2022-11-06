@@ -36,35 +36,35 @@ public class Main {
             System.out.println("\n---------Current channel--------");
             television.channelInfo();
             System.out.println("\nType command:");
-            String ent = scanner.next();
-            if (Objects.equals(ent, "quit")) {
+            String command = scanner.next();
+            if (Objects.equals(command, "quit")) {
                 if (channels.length == 4) {
                     System.out.println("Channel you added will be deleted!\nenter 'ok' to confirm: ");
-                    ent = scanner.next();
-                    while (!Objects.equals(ent, "ok")){
+                    command = scanner.next();
+                    while (!Objects.equals(command, "ok")){
                         System.out.println("Wrong command");
-                        ent = scanner.next();
+                        command = scanner.next();
                     }
                 }
                 System.out.println("Goodbye");
                 break;
             }
-            switch (ent.toLowerCase()) {
+            switch (command.toLowerCase()) {
                 case "all" -> {
                     System.out.println("All channels:");
                     for (Channel channel : channels) {
                         channel.allChannels();
                     }
                     System.out.println("\nEnter 'add' to add channel\nYou can add only one channel: ");
-                    ent = scanner.next();
-                    if (Objects.equals(ent, "add")) {
+                    command = scanner.next();
+                    if (Objects.equals(command, "add")) {
                         if (channels.length == 4){
                             System.out.println("""
                                     
                                     You already added 1 channel!
                                     If you want to change added channel - enter 'change':""");
-                            ent = scanner.next();
-                            if (Objects.equals(ent, "change")){
+                            command = scanner.next();
+                            if (Objects.equals(command, "change")){
                                 Channel channel4 = new Channel();
                                 System.out.println("Set channel number:");
                                 channel4.setChannelNumber(scanner.nextInt());
@@ -92,7 +92,7 @@ public class Main {
                                 channel.allChannels();
                             }
                         }
-                    } else if (Objects.equals(ent, "current")) {
+                    } else if (Objects.equals(command, "current")) {
                     } else {
                         System.out.println("Wrong command!");
                         System.out.println();
